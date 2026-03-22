@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velixan Technologies | Software Development for Founders & Growing Businesses</title>
+    <meta name="description" content="Velixan Technologies builds custom software, apps, and SaaS products for founders and MSMEs — no tech jargon, senior engineers on every project, and a 7-day free trial before you commit.">
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velixantechnologies.com/">
+    <meta property="og:title" content="Velixan Technologies | Software Development for Founders & Growing Businesses">
+    <meta property="og:description" content="You have the vision. We handle everything technical. Custom apps, SaaS platforms, and AI tools — built for founders and MSMEs who don't have time for tech headaches.">
+    <meta property="og:image" content="https://velixantechnologies.com/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Velixan Technologies | Software Development for Founders & Growing Businesses">
+    <meta name="twitter:description" content="You have the vision. We handle everything technical. Custom apps, SaaS platforms, and AI tools — built for founders and MSMEs who don't have time for tech headaches.">
+    <meta name="twitter:image" content="https://velixantechnologies.com/og-image.png">
+    <!-- Theme & Favicon -->
+    <meta name="theme-color" content="#7000ff">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Live Interactive Background -->
+    <canvas id="live-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">Velixan</span><span class="logo-dot">.</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li class="dropdown">
+                    <a href="#services" class="nav-link">Services 
+                        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#dev-design"><span>💻</span> Development & Design</a></li>
+                        <li><a href="#modernization"><span>⚡</span> Solution Modernization</a></li>
+                        <li><a href="#consulting"><span>📈</span> Consulting & Strategy</a></li>
+                    </ul>
+                </li>
+                <li><a href="#process" class="nav-link">Process</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <a href="mailto:hello@velixantechnologies.com" class="btn-primary nav-cta">Book a Free Call</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    For Founders, MSMEs &amp; Growing Businesses
+                </div>
+                <h1>
+                    Your Partner In<br>
+                    <span class="gradient-text typed-text" id="typed-text">Building Your Vision</span>
+                </h1>
+                <p class="hero-sub">You have the idea. We handle everything technical — no jargon, no surprises, no excuses. Tell us what you need in plain English and we'll build it right the first time.</p>
+                <div class="hero-buttons">
+                    <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow">Book a Free Clarity Call</a>
+                    <a href="#services" class="btn-ghost">
+                        <span class="btn-ghost-inner">See What We Build</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <div class="trust-dot"></div>
+                        <span>NDA Protected</span>
+                    </div>
+                    <div class="trust-sep">|</div>
+                    <div class="trust-item">
+                        <div class="trust-dot cyan"></div>
+                        <span>No Jargon, Ever</span>
+                    </div>
+                    <div class="trust-sep">|</div>
+                    <div class="trust-item">
+                        <div class="trust-dot green"></div>
+                        <span>7-Day Free Trial</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Futuristic 3D Orb Graphic -->
+            <div class="hero-visual">
+                <div class="orb-scene">
+                    <div class="orb-ring ring-1"></div>
+                    <div class="orb-ring ring-2"></div>
+                    <div class="orb-ring ring-3"></div>
+                    <div class="glass-sphere">
+                        <div class="sphere-shimmer"></div>
+                        <div class="inner-glow"></div>
+                        <div class="inner-glow inner-glow-2"></div>
+                    </div>
+                    <div class="floating-chip chip-1">
+                        <span>&#128640;</span> MVP in Weeks
+                    </div>
+                    <div class="floating-chip chip-2">
+                        <span>&#129309;</span> Your Tech Team
+                    </div>
+                    <div class="floating-chip chip-3">
+                        <span>&#9989;</span> Free Trial
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="container stats-marquee-bar">
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-unit">+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-unit">%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-unit"> Days</div>
+                    <div class="stat-label">Free Trial to Start</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-unit">+</div>
+                    <div class="stat-label">Regions Served</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-eyebrow">What We Build</div>
+                <h2>Everything Your <span class="gradient-text">Business Needs</span></h2>
+                <p>From your first app to a full product suite — we handle the technology so you can focus on running your business.</p>
+            </div>
+
+            <!-- Service Tab Navigation -->
+            <div class="service-tabs reveal-up">
+                <button class="tab-btn active" data-tab="dev-design">Build Something New</button>
+                <button class="tab-btn" data-tab="modernization">Fix What's Broken</button>
+                <button class="tab-btn" data-tab="consulting">Strategy &amp; Growth</button>
+            </div>
+
+            <!-- Category 1: Development & Design -->
+            <div id="dev-design" class="service-category tab-content active">
+                <div class="service-category-header">
+                    <h3>Build Something New</h3>
+                    <p>Have an idea? Whether it's your first app or your tenth product — we take it from concept to launch.</p>
+                </div>
+                <div class="card-grid">
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#128187;</div>
+                        <h3>Custom Software Development</h3>
+                        <p>Got a business process eating hours every week? We build software around how your business actually works — not the other way around.</p>
+                        <div class="card-tags">
+                            <span>For MSMEs</span><span>Built to Scale</span><span>Yours to Own</span>
+                        </div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#128241;</div>
+                        <h3>Mobile App Development</h3>
+                        <p>Your customers are on their phones. Give them an app they'll actually use. We handle design, development, and launch — you just describe what it should do.</p>
+                        <div class="card-tags"><span>iOS</span><span>Android</span><span>Done For You</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-green">&#127758;</div>
+                        <h3>Web Development</h3>
+                        <p>A website that just looks good won't grow your business. We build web platforms that convert visitors into paying clients — fast, mobile-friendly, and easy to manage.</p>
+                        <div class="card-tags"><span>Fast &amp; Reliable</span><span>Mobile-Friendly</span><span>Easy to Update</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#127912;</div>
+                        <h3>UX/UI Design</h3>
+                        <p>Most software fails because it's confusing to use. We design interfaces your customers understand in seconds — no instruction manual required.</p>
+                        <div class="card-tags"><span>Intuitive Design</span><span>User Tested</span><span>Converts Well</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#9881;&#65039;</div>
+                        <h3>Backend Development</h3>
+                        <p>The engine behind your product. We build the systems that keep your app running reliably — even when thousands of people use it at once. You'll never have to think about it.</p>
+                        <div class="card-tags"><span>Reliable</span><span>Secure</span><span>Scales With You</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-green">&#9729;&#65039;</div>
+                        <h3>SaaS Application Development</h3>
+                        <p>Have an idea you want to charge a subscription for? We build complete SaaS platforms — billing, user accounts, dashboards — ready to take your first paying customer.</p>
+                        <div class="card-tags"><span>Subscription Ready</span><span>Full Stack</span><span>Launch-Ready</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#128640;</div>
+                        <h3>MVP Development</h3>
+                        <p>Stop overthinking. Get your idea in front of real users in weeks. We build the smallest version that proves your concept — so you can raise funding, get feedback, and move fast.</p>
+                        <div class="card-tags"><span>Fast Launch</span><span>Investor-Ready</span><span>Real Users Fast</span></div>
+                    </div>
+                    <div class="glass-card tilt-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#128279;</div>
+                        <h3>Cross-Platform Development</h3>
+                        <p>Build once, run everywhere. One codebase covers web, iOS, and Android — cutting your cost without cutting corners on quality or performance.</p>
+                        <div class="card-tags"><span>Web + Mobile</span><span>Cost-Effective</span><span>One Codebase</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Solution Modernization -->
+            <div id="modernization" class="service-category tab-content">
+                <div class="service-category-header">
+                    <h3>Fix What's Broken</h3>
+                    <p>Your existing software doesn't have to slow you down. We modernize what you have — without starting from scratch and without losing your data.</p>
+                </div>
+                <div class="card-grid">
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#127970;</div>
+                        <h3>Your Old Software, Rebuilt for Today</h3>
+                        <p>Still running on old software everyone hates but no one wants to touch? We modernize it — keeping all your data and business logic intact, while making it fast, modern, and actually usable.</p>
+                        <div class="card-tags"><span>No Data Loss</span><span>Cloud-Ready</span><span>Zero Downtime</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-green">&#9889;</div>
+                        <h3>Ditch the Spreadsheets. Automate the Boring Stuff.</h3>
+                        <p>If your team copies data between spreadsheets, chases approvals over email, or does anything manually that software could handle — we fix that. End to end. So your team focuses on real work.</p>
+                        <div class="card-tags"><span>Process Automation</span><span>Saves Hours Daily</span><span>AI-Powered</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Consulting & Strategy -->
+            <div id="consulting" class="service-category tab-content">
+                <div class="service-category-header">
+                    <h3>Strategy &amp; Growth</h3>
+                    <p>Not sure where to start or what to build? We'll help you figure it out — then help you execute it.</p>
+                </div>
+                <div class="card-grid">
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#128200;</div>
+                        <h3>From Idea to Launch Plan</h3>
+                        <p>You have a business idea but don't know what to build, what it should cost, or where to start. We sit down with you, map it all out, and give you a clear plan — no obligation, no jargon.</p>
+                        <div class="card-tags"><span>Free Discovery</span><span>Tech Roadmap</span><span>Investor-Ready</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#127919;</div>
+                        <h3>More Clients, Less Guesswork</h3>
+                        <p>Once your product is live, you need people to find it. We run SEO and performance campaigns built specifically for software-driven businesses — focused on leads that actually convert, not vanity metrics.</p>
+                        <div class="card-tags"><span>SEO</span><span>Lead Generation</span><span>Conversion-Focused</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-eyebrow">How It Works</div>
+                <h2>Simple Steps to <span class="gradient-text">Get Started</span></h2>
+                <p>No confusing contracts or endless back-and-forth. Here's exactly what happens when you reach out — from first conversation to live product.</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-line"></div>
+                <div class="process-step reveal-up">
+                    <div class="step-number">01</div>
+                    <div class="step-content glass-card-sm">
+                        <div class="step-icon">&#128222;</div>
+                        <h3>Tell Us Your Idea</h3>
+                        <p>No preparation needed. Just describe what you want to build in plain English. We ask the right questions and come back with clear options, honest timelines, and real pricing.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal-up" style="transition-delay: 0.1s;">
+                    <div class="step-number">02</div>
+                    <div class="step-content glass-card-sm">
+                        <div class="step-icon">&#128301;</div>
+                        <h3>See Real Work First — Free</h3>
+                        <p>Before you spend a single dollar, we get to work on your actual project. Real designs. Real code. Real output — in 7 days. Then you decide if we're the right fit.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal-up" style="transition-delay: 0.2s;">
+                    <div class="step-number">03</div>
+                    <div class="step-content glass-card-sm">
+                        <div class="step-icon">&#128640;</div>
+                        <h3>We Take It From Here</h3>
+                        <p>Once you're in, you get a dedicated team, a shared project board, and weekly updates in plain English. No jargon. No surprises. Just steady progress you can actually see.</p>
+                    </div>
+                </div>
+                <div class="process-step reveal-up" style="transition-delay: 0.3s;">
+                    <div class="step-number">04</div>
+                    <div class="step-content glass-card-sm">
+                        <div class="step-icon">&#9989;</div>
+                        <h3>Launch and Keep Growing</h3>
+                        <p>We ship your product on schedule and stay with you after launch. As your business grows, we scale the technology alongside it — same team, same communication, no handoff to strangers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-left reveal-up">
+                    <div class="section-eyebrow">Why Founders Choose Us</div>
+                    <h2>We Speak <span class="gradient-text">Business First.</span><br>Code Second.</h2>
+                    <p>Most agencies speak in tech jargon and make you feel like you need a computer science degree to work with them. We don't. You describe what you need in plain English — we make it happen, on time, without the drama.</p>
+                    <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow" style="margin-top: 32px; display: inline-flex;">
+                        Book a Free Clarity Call
+                    </a>
+                </div>
+                <div class="why-us-right">
+                    <div class="feature-item reveal-up">
+                        <div class="feature-icon gradient-purple">&#128274;</div>
+                        <div class="feature-text">
+                            <h4>Your Idea Stays Yours</h4>
+                            <p>Every project starts with a signed NDA. Your concept, your data, and your business logic are fully protected from day one — no exceptions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal-up" style="transition-delay: 0.1s;">
+                        <div class="feature-icon gradient-blue">&#129504;</div>
+                        <div class="feature-text">
+                            <h4>Senior Engineers. Every Project.</h4>
+                            <p>No bait-and-switch. No junior devs doing the heavy lifting. The senior engineers you meet in the proposal are the ones who build your product.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal-up" style="transition-delay: 0.2s;">
+                        <div class="feature-icon gradient-green">&#127760;</div>
+                        <div class="feature-text">
+                            <h4>You'll Always Know What's Happening</h4>
+                            <p>Weekly updates in plain language. A shared project board you can check anytime. No wondering what the team is doing — or if they're doing anything at all.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item reveal-up" style="transition-delay: 0.3s;">
+                        <div class="feature-icon gradient-purple">&#128161;</div>
+                        <div class="feature-text">
+                            <h4>Built Around Your Business</h4>
+                            <p>We don't shoehorn your business into a template. Every system we build is designed around your real workflows, your real team, and how you actually operate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <div class="section-eyebrow">Founders &amp; Business Owners</div>
+                <h2>Real Results, <span class="gradient-text">Real Businesses</span></h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card reveal-up">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"I'm not technical at all. Velixan translated everything I described into a working product — and kept me in the loop the whole way. Delivered exactly what I imagined, on time."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar gradient-purple">JR</div>
+                        <div>
+                            <div class="author-name">J. Richardson</div>
+                            <div class="author-role">Founder, Tech Startup — New Mexico, USA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Our whole team was drowning in manual work. Velixan built a custom system that saves us hours every single day. Plain-English communication, zero confusion, delivered on schedule."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar gradient-blue">MK</div>
+                        <div>
+                            <div class="author-name">M. Khalid</div>
+                            <div class="author-role">Operations Director, Business Group — Dubai, UAE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"I had a napkin idea and zero technical background. Four months later, we had a live SaaS with paying customers. Velixan became our tech co-founder — not just a vendor."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar gradient-green">SN</div>
+                        <div>
+                            <div class="author-name">S. Newman</div>
+                            <div class="author-role">Founder, B2B SaaS — Toronto, Canada</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Presence Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-split">
+                <div class="about-left reveal-up">
+                    <div class="section-eyebrow">About Velixan</div>
+                    <h2>Built for Founders <span class="gradient-text">Building Something Real</span></h2>
+                    <p>Velixan Technologies was built for one type of client: business owners and founders who have a clear vision but need a trusted technical team to make it real. We're not a faceless outsourcing firm. We're a dedicated team of engineers and strategists who work like your in-house team — with the capacity and expertise of an agency.</p>
+                    <p style="margin-top: 20px;">Canada-based, with active teams serving the <strong>USA</strong> and <strong>Middle East</strong> — we deliver across time zones without the communication gaps that slow other agencies down.</p>
+                    <div class="presence-pills">
+                        <div class="pill">&#127464;&#127462; Canada HQ</div>
+                        <div class="pill">&#127482;&#127480; USA</div>
+                        <div class="pill">&#127466;&#127462; Middle East</div>
+                    </div>
+                </div>
+                <div class="about-right reveal-scale">
+                    <div class="about-visual">
+                        <div class="geo-card glass-card tilt-card">
+                            <div class="card-glow"></div>
+                            <div class="geo-line">
+                                <div class="geo-dot gradient-purple"></div>
+                                <div>
+                                    <div class="geo-label">Headquarters</div>
+                                    <div class="geo-value">Canada</div>
+                                </div>
+                            </div>
+                            <div class="geo-line">
+                                <div class="geo-dot gradient-blue"></div>
+                                <div>
+                                    <div class="geo-label">Primary Market</div>
+                                    <div class="geo-value">United States</div>
+                                </div>
+                            </div>
+                            <div class="geo-line">
+                                <div class="geo-dot gradient-green"></div>
+                                <div>
+                                    <div class="geo-label">Strategic Region</div>
+                                    <div class="geo-value">Middle East</div>
+                                </div>
+                            </div>
+                            <div class="geo-line">
+                                <div class="geo-dot gradient-purple" style="background: linear-gradient(135deg,#7000ff,#00d4ff);"></div>
+                                <div>
+                                    <div class="geo-label">Operating Model</div>
+                                    <div class="geo-value">Global Delivery</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-mission glass-card-sm">
+                            <div class="mission-icon">&#128161;</div>
+                            <div class="mission-text">
+                                <strong>Our Promise</strong>
+                                <p>To make technology feel less like a black box and more like your biggest competitive advantage — no matter your technical background.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-section">
+        <div class="cta-glow-1"></div>
+        <div class="cta-glow-2"></div>
+        <div class="container cta-container reveal-up">
+            <div class="cta-badge">Risk-Free First Step</div>
+            <h2>Not Sure Yet?<br><span class="gradient-text">Try Us Free for 7 Days.</span></h2>
+            <p>Work with our team on your actual project — real designs, real code, real output. If it's not exactly what you expected, you walk away. No contracts. No invoice. No pressure.</p>
+            <div class="cta-buttons">
+                <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow btn-large">Claim My Free 7 Days</a>
+                <a href="#process" class="btn-ghost btn-large">
+                    <span class="btn-ghost-inner">See How It Works</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="container footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo"><span class="logo-text">Velixan</span><span class="logo-dot">.</span></div>
+                    <p>Software development for founders and growing businesses. Senior engineers, plain-English communication, and a free 7-day trial so you can see the quality before you commit.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:hello@velixantechnologies.com">hello@velixantechnologies.com</a>
+                    </div>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <a href="#dev-design">Custom Software</a>
+                        <a href="#dev-design">Mobile & Web Dev</a>
+                        <a href="#dev-design">UX/UI Design</a>
+                        <a href="#dev-design">SaaS Development</a>
+                        <a href="#dev-design">MVP Development</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Solutions</h4>
+                        <a href="#modernization">Legacy Modernization</a>
+                        <a href="#modernization">Digital Transformation</a>
+                        <a href="#consulting">Start-up Consulting</a>
+                        <a href="#consulting">Digital Marketing</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#process">Our Process</a>
+                        <a href="https://velixantechnologies.com">Main Website</a>
+                        <a href="mailto:hello@velixantechnologies.com">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Velixan Technologies. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
