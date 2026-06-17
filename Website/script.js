@@ -4,6 +4,8 @@
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
@@ -16,9 +18,12 @@ window.addEventListener('scroll', () => {
     updateActiveNav();
 });
 
+// Toggle mobile menu and manage accessibility state & scroll lock
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('mobile-open');
+    const isOpen = hamburger.classList.toggle('active');
+    navLinks.classList.toggle('mobile-open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('scroll-lock', isOpen);
 });
 
 // Close menu on link click
@@ -26,7 +31,21 @@ navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('mobile-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('scroll-lock');
     });
+});
+
+// Close menu when clicking outside it on mobile
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('mobile-open')) {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('mobile-open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('scroll-lock');
+        }
+    }
 });
 
 function updateActiveNav() {
@@ -57,6 +76,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
+
+        // Check if the target is a tab category
+        const tabBtn = document.querySelector(`.tab-btn[data-tab="${targetId.substring(1)}"]`);
+        if (tabBtn) {
+            // Programmatically switch tabs
+            tabBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            tabBtn.classList.add('active');
+            tabBtn.setAttribute('aria-selected', 'true');
+            const targetContent = document.getElementById(targetId.substring(1));
+            if (targetContent) {
+                targetContent.classList.add('active');
+                
+                // Scroll directly to the active category content
+                const offset = navbar.offsetHeight + 16;
+                const top = targetContent.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+            return;
+        }
+
         const target = document.querySelector(targetId);
         if (target) {
             const offset = navbar.offsetHeight + 16;
@@ -69,18 +113,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ===========================
 // SERVICE TABS
 // ===========================
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
+// Redundant global declarations removed (declared at top of file)
+
 
 tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         const targetTab = btn.dataset.tab;
 
-        tabBtns.forEach(b => b.classList.remove('active'));
+        tabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+        });
         tabContents.forEach(c => c.classList.remove('active'));
 
         btn.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
     });
 });
 
@@ -217,26 +268,43 @@ setTimeout(typeWriter, 1000);
 const canvas = document.getElementById('live-canvas');
 const ctx = canvas.getContext('2d');
 let particlesArray = [];
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let animationId;
+let isMobile = window.innerWidth < 768;
 
 const mouse = { x: null, y: null, radius: 160 };
 
-window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-});
-
-window.addEventListener('mouseout', () => {
-    mouse.x = undefined;
-    mouse.y = undefined;
-});
-
-window.addEventListener('resize', () => {
+if (!isMobile) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    init();
+
+    window.addEventListener('mousemove', e => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseout', () => {
+        mouse.x = undefined;
+        mouse.y = undefined;
+    });
+}
+
+window.addEventListener('resize', () => {
+    const wasMobile = isMobile;
+    isMobile = window.innerWidth < 768;
+    
+    if (isMobile) {
+        if (!wasMobile && animationId) {
+            cancelAnimationFrame(animationId);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    } else {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+        if (wasMobile || !animationId) {
+            animate();
+        }
+    }
 });
 
 class Particle {
@@ -266,11 +334,9 @@ class Particle {
     }
 
     update() {
-        // Boundary
         if (this.x < 0 || this.x > canvas.width) this.dirX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.dirY *= -1;
 
-        // Mouse repel
         if (mouse.x !== undefined) {
             const dx = mouse.x - this.x;
             const dy = mouse.y - this.y;
@@ -317,9 +383,8 @@ function connect() {
     }
 }
 
-let animationId;
-
 function animate() {
+    if (isMobile) return;
     animationId = requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particlesArray.forEach(p => p.update());
@@ -330,9 +395,80 @@ document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
         cancelAnimationFrame(animationId);
     } else {
-        animate();
+        if (!isMobile) {
+            animate();
+        }
     }
 });
 
-init();
-animate();
+if (!isMobile) {
+    init();
+    animate();
+}
+
+// ===========================
+// CONTACT MODAL LOGIC
+// ===========================
+const modal = document.getElementById('contact-modal');
+const modalClose = document.getElementById('modal-close');
+const modalBackdrop = modal.querySelector('.modal-backdrop');
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
+const successCloseBtn = modal.querySelector('.btn-success-close');
+const modalTriggers = document.querySelectorAll('.trigger-modal');
+
+function openModal() {
+    if (!modal) return;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('scroll-lock');
+    // Focus the first input field
+    setTimeout(() => {
+        const firstInput = document.getElementById('form-name');
+        if (firstInput) firstInput.focus();
+    }, 100);
+}
+
+function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('scroll-lock');
+    // Reset form states after close animation completes
+    setTimeout(() => {
+        if (contactForm) contactForm.style.display = 'block';
+        if (formSuccess) formSuccess.style.display = 'none';
+        if (contactForm) contactForm.reset();
+    }, 300);
+}
+
+// Attach event listeners to all trigger buttons
+modalTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+});
+
+// Close triggers
+if (modalClose) modalClose.addEventListener('click', closeModal);
+if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+// Escape key listener to close modal
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+        closeModal();
+    }
+});
+
+// Form submit handling
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Hide form and show success state
+        contactForm.style.display = 'none';
+        if (formSuccess) formSuccess.style.display = 'block';
+    });
+}

@@ -19,7 +19,7 @@
     <meta name="twitter:image" content="https://velixantechnologies.com/og-image.png">
     <!-- Theme & Favicon -->
     <meta name="theme-color" content="#7000ff">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,8 +51,8 @@
                 <li><a href="#process" class="nav-link">Process</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
             </ul>
-            <a href="mailto:hello@velixantechnologies.com" class="btn-primary nav-cta">Book a Free Call</a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
+            <a href="#contact-modal" class="btn-primary nav-cta trigger-modal">Book a Free Call</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-haspopup="true">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -72,7 +72,7 @@
                 </h1>
                 <p class="hero-sub">You have the idea. We handle everything technical — no jargon, no surprises, no excuses. Tell us what you need in plain English and we'll build it right the first time.</p>
                 <div class="hero-buttons">
-                    <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow">Book a Free Clarity Call</a>
+                    <a href="#contact-modal" class="btn-primary btn-glow trigger-modal">Book a Free Clarity Call</a>
                     <a href="#services" class="btn-ghost">
                         <span class="btn-ghost-inner">See What We Build</span>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -124,23 +124,20 @@
         <div class="container stats-marquee-bar">
             <div class="stats-bar">
                 <div class="stat-item">
-                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-number" data-target="22">0</div>
                     <div class="stat-unit">+</div>
                     <div class="stat-label">Projects Delivered</div>
                 </div>
-                <div class="stat-divider"></div>
                 <div class="stat-item">
                     <div class="stat-number" data-target="98">0</div>
                     <div class="stat-unit">%</div>
                     <div class="stat-label">Client Satisfaction</div>
                 </div>
-                <div class="stat-divider"></div>
                 <div class="stat-item">
                     <div class="stat-number" data-target="7">0</div>
                     <div class="stat-unit"> Days</div>
                     <div class="stat-label">Free Trial to Start</div>
                 </div>
-                <div class="stat-divider"></div>
                 <div class="stat-item">
                     <div class="stat-number" data-target="3">0</div>
                     <div class="stat-unit">+</div>
@@ -160,14 +157,14 @@
             </div>
 
             <!-- Service Tab Navigation -->
-            <div class="service-tabs reveal-up">
-                <button class="tab-btn active" data-tab="dev-design">Build Something New</button>
-                <button class="tab-btn" data-tab="modernization">Fix What's Broken</button>
-                <button class="tab-btn" data-tab="consulting">Strategy &amp; Growth</button>
+            <div class="service-tabs reveal-up" role="tablist" aria-label="Our Services">
+                <button class="tab-btn active" id="tab-dev-design" role="tab" aria-selected="true" aria-controls="dev-design" data-tab="dev-design">Build Something New</button>
+                <button class="tab-btn" id="tab-modernization" role="tab" aria-selected="false" aria-controls="modernization" data-tab="modernization">Fix What's Broken</button>
+                <button class="tab-btn" id="tab-consulting" role="tab" aria-selected="false" aria-controls="consulting" data-tab="consulting">Strategy &amp; Growth</button>
             </div>
 
             <!-- Category 1: Development & Design -->
-            <div id="dev-design" class="service-category tab-content active">
+            <div id="dev-design" class="service-category tab-content active" role="tabpanel" aria-labelledby="tab-dev-design">
                 <div class="service-category-header">
                     <h3>Build Something New</h3>
                     <p>Have an idea? Whether it's your first app or your tenth product — we take it from concept to launch.</p>
@@ -243,7 +240,7 @@
             </div>
 
             <!-- Category 2: Solution Modernization -->
-            <div id="modernization" class="service-category tab-content">
+            <div id="modernization" class="service-category tab-content" role="tabpanel" aria-labelledby="tab-modernization">
                 <div class="service-category-header">
                     <h3>Fix What's Broken</h3>
                     <p>Your existing software doesn't have to slow you down. We modernize what you have — without starting from scratch and without losing your data.</p>
@@ -265,11 +262,27 @@
                         <p>If your team copies data between spreadsheets, chases approvals over email, or does anything manually that software could handle — we fix that. End to end. So your team focuses on real work.</p>
                         <div class="card-tags"><span>Process Automation</span><span>Saves Hours Daily</span><span>AI-Powered</span></div>
                     </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">&#9729;&#65039;</div>
+                        <h3>Cloud Migration &amp; Optimization</h3>
+                        <p>Is your infrastructure slow, insecure, or costing a fortune? We transition your legacy apps to secure, modern cloud platforms (AWS, Google Cloud) and optimize your host setup for cost efficiency.</p>
+                        <div class="card-tags"><span>AWS &amp; GCP</span><span>Saves Server Costs</span><span>Highly Secure</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#128279;</div>
+                        <h3>API &amp; Database Integration</h3>
+                        <p>Connect your software silos. We build custom APIs and sync databases so your billing, customer list, and CRM work together automatically, eliminating error-prone double entry.</p>
+                        <div class="card-tags"><span>Data Syncing</span><span>Custom APIs</span><span>Zero Latency</span></div>
+                    </div>
                 </div>
             </div>
 
             <!-- Category 3: Consulting & Strategy -->
-            <div id="consulting" class="service-category tab-content">
+            <div id="consulting" class="service-category tab-content" role="tabpanel" aria-labelledby="tab-consulting">
                 <div class="service-category-header">
                     <h3>Strategy &amp; Growth</h3>
                     <p>Not sure where to start or what to build? We'll help you figure it out — then help you execute it.</p>
@@ -290,6 +303,22 @@
                         <h3>More Clients, Less Guesswork</h3>
                         <p>Once your product is live, you need people to find it. We run SEO and performance campaigns built specifically for software-driven businesses — focused on leads that actually convert, not vanity metrics.</p>
                         <div class="card-tags"><span>SEO</span><span>Lead Generation</span><span>Conversion-Focused</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-green">&#128161;</div>
+                        <h3>Fractional CTO &amp; Advisory</h3>
+                        <p>Get senior technical leadership without the cost of a full-time executive salary. Receive part-time advisory for tech stack selections, system architecture decisions, and vetting hires.</p>
+                        <div class="card-tags"><span>Tech Strategy</span><span>Cost-Effective</span><span>Senior Advisory</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">&#129504;</div>
+                        <h3>AI &amp; Automation Audit</h3>
+                        <p>We review your business operations to find where AI agents, LLMs, and modern workflow automations can save you time, cut costs, and double your team's operational output.</p>
+                        <div class="card-tags"><span>AI Roadmap</span><span>Process Audit</span><span>High ROI</span></div>
                     </div>
                 </div>
             </div>
@@ -350,7 +379,7 @@
                     <div class="section-eyebrow">Why Founders Choose Us</div>
                     <h2>We Speak <span class="gradient-text">Business First.</span><br>Code Second.</h2>
                     <p>Most agencies speak in tech jargon and make you feel like you need a computer science degree to work with them. We don't. You describe what you need in plain English — we make it happen, on time, without the drama.</p>
-                    <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow" style="margin-top: 32px; display: inline-flex;">
+                    <a href="#contact-modal" class="btn-primary btn-glow trigger-modal" style="margin-top: 32px; display: inline-flex;">
                         Book a Free Clarity Call
                     </a>
                 </div>
@@ -503,7 +532,7 @@
             <h2>Not Sure Yet?<br><span class="gradient-text">Try Us Free for 7 Days.</span></h2>
             <p>Work with our team on your actual project — real designs, real code, real output. If it's not exactly what you expected, you walk away. No contracts. No invoice. No pressure.</p>
             <div class="cta-buttons">
-                <a href="mailto:hello@velixantechnologies.com" class="btn-primary btn-glow btn-large">Claim My Free 7 Days</a>
+                <a href="#contact-modal" class="btn-primary btn-glow btn-large trigger-modal">Claim My Free 7 Days</a>
                 <a href="#process" class="btn-ghost btn-large">
                     <span class="btn-ghost-inner">See How It Works</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -552,12 +581,58 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Velixan Technologies. All rights reserved.</p>
                 <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <h3 id="modal-title">Start a Project with <span class="gradient-text">Velixan</span></h3>
+                <p class="modal-subtitle">Tell us about your vision. We'll get back to you within 24 hours.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" id="form-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Work Email</label>
+                        <input type="email" id="form-email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-budget">Project Budget (Optional)</label>
+                        <select id="form-budget">
+                            <option value="" disabled selected>Select a range...</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-20k">$5,000 - $20,000</option>
+                            <option value="20k-50k">$20,000 - $50,000</option>
+                            <option value="50k-plus">$50,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Describe what you want to build</label>
+                        <textarea id="form-message" rows="4" placeholder="I need a custom SaaS app with automated workflows..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-glow btn-submit">Submit Request</button>
+                </form>
+                
+                <!-- Success State -->
+                <div id="form-success" class="form-success-state" style="display: none;">
+                    <div class="success-icon">&#9989;</div>
+                    <h4>Request Received!</h4>
+                    <p>Thank you for reaching out. A senior engineer will review your project description and contact you via email shortly.</p>
+                    <button type="button" class="btn-primary btn-success-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -57,6 +57,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+body.scroll-lock {
+    overflow: hidden;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -83,6 +87,20 @@ a {
     z-index: -1;
     pointer-events: none;
     background: radial-gradient(ellipse at 30% 20%, #0a0818 0%, #030305 60%);
+}
+
+@media (max-width: 767px) {
+    #live-canvas {
+        background: linear-gradient(-45deg, #0a0818, #110d29, #05040a, #0d0922);
+        background-size: 400% 400%;
+        animation: mobileBgAnim 15s ease infinite;
+    }
+}
+
+@keyframes mobileBgAnim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ===========================
@@ -767,10 +785,8 @@ p {
     text-align: center;
 }
 
-.stat-divider {
-    width: 1px;
-    background: var(--glass-border);
-    align-self: stretch;
+.stats-bar .stat-item:not(:last-child) {
+    border-right: 1px solid var(--glass-border);
 }
 
 /* ===========================
@@ -1576,7 +1592,20 @@ p {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .stat-divider:nth-child(4) { display: none; }
+    .stats-bar .stat-item {
+        border-right: none;
+        border-bottom: none;
+    }
+
+    /* 2x2 grid dividers: odd items (left column) have right border */
+    .stats-bar .stat-item:nth-child(odd) {
+        border-right: 1px solid var(--glass-border);
+    }
+
+    /* 2x2 grid dividers: first two items (top row) have bottom border */
+    .stats-bar .stat-item:nth-child(-n+2) {
+        border-bottom: 1px solid var(--glass-border);
+    }
 
     .service-tabs {
         width: 100%;
@@ -1608,5 +1637,168 @@ p {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ===========================
+   CONTACT MODAL
+   =========================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 3, 5, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.modal-container {
+    width: 90%;
+    max-width: 520px;
+    background: rgba(8, 8, 17, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    position: relative;
+    z-index: 1001;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 100px rgba(112, 0, 255, 0.1);
+}
+
+.modal.open .modal-container {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 32px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.modal-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    padding: 12px 16px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-purple-light);
+    box-shadow: 0 0 12px rgba(179, 71, 255, 0.25);
+}
+
+.form-group select option {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.form-success-state {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.success-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.form-success-state h4 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.form-success-state p {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+    .modal-container {
+        padding: 32px 20px;
+    }
+    .modal-content h3 {
+        font-size: 1.5rem;
     }
 }
