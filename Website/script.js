@@ -62,7 +62,8 @@ function updateActiveNav() {
 
     navLinkEls.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        const href = link.getAttribute('href');
+        if (href === `#${current}` || href === `index.html#${current}`) {
             link.classList.add('active');
         }
     });
@@ -71,10 +72,22 @@ function updateActiveNav() {
 // ===========================
 // SMOOTH SCROLL
 // ===========================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"], a[href^="index.html#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
+        let targetId = this.getAttribute('href');
+        if (targetId.startsWith('index.html#')) {
+            const currentPage = window.location.pathname.split('/').pop();
+            // If already on the home page, bypass navigation and smooth scroll
+            if (currentPage === '' || currentPage === 'index.html') {
+                e.preventDefault();
+                targetId = targetId.substring(10); // Strip index.html prefix
+            } else {
+                return; // Normal browser navigation to index.html#hash
+            }
+        } else {
+            e.preventDefault();
+        }
+
         if (targetId === '#') return;
 
         // Check if the target is a tab category

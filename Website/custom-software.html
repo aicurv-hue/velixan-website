@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Software Development | Velixan Technologies</title>
+    <meta name="description" content="Get tailored software solutions, enterprise SaaS applications, custom APIs, and secure cloud platforms with Velixan Technologies.">
+    <meta name="theme-color" content="#7000ff">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .service-page {
+            padding: 160px 0 100px;
+            position: relative;
+        }
+        .page-header {
+            max-width: 800px;
+            margin-bottom: 80px;
+        }
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .service-grid-section {
+            margin-bottom: 100px;
+        }
+        .tech-stack-section {
+            margin-bottom: 100px;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .tech-badge {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            text-align: center;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tech-badge:hover {
+            border-color: var(--color-purple-light);
+            box-shadow: 0 0 20px rgba(179, 71, 255, 0.15);
+        }
+        .tech-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .tech-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background -->
+    <canvas id="live-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html#home" class="logo">
+                <span class="logo-text">Velixan</span><span class="logo-dot">.</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li class="dropdown">
+                    <a href="index.html#services" class="nav-link">Services 
+                        <svg class="chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="custom-software.html"><span>💻</span> Custom Software</a></li>
+                        <li><a href="mobile-apps.html"><span>📱</span> Mobile Applications</a></li>
+                        <li><a href="cybersecurity.html"><span>🔒</span> Cybersecurity Services</a></li>
+                        <li><a href="index.html#consulting"><span>📈</span> Consulting & Strategy</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#process" class="nav-link">Process</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+            </ul>
+            <a href="#contact-modal" class="btn-primary nav-cta trigger-modal">Book a Free Call</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-haspopup="true">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="service-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="page-header reveal-up">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Software Engineering &amp; Architecture
+                </div>
+                <h1>Custom Software <span class="gradient-text">Development</span></h1>
+                <p>Build robust, secure, and scaling systems engineered to solve complex operational challenges. From cloud-native applications to custom SaaS and API integrations — we write clean, robust code tailored to your vision.</p>
+                <div class="hero-buttons" style="margin-top: 32px;">
+                    <a href="#contact-modal" class="btn-primary btn-glow trigger-modal">Get a Free Consultation</a>
+                </div>
+            </div>
+
+            <!-- Overview Box -->
+            <div class="glass-card reveal-up" style="margin-bottom: 100px; padding: 48px; text-align: left;">
+                <div class="card-glow"></div>
+                <h3>Service Overview</h3>
+                <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem; margin-top: 16px;">
+                    At Velixan Technologies, we provide top-notch custom software development services designed specifically to optimize your workflows. Our expert engineering team designs and deploys custom systems, web-based tools, SaaS solutions, and enterprise software that keep your business operations running flawlessly. Using modern backends and scaling cloud databases, we deliver secure, high-performing code that boosts productivity.
+                </p>
+            </div>
+
+            <!-- Process Section -->
+            <section class="process-section" style="padding: 0; margin-bottom: 100px;">
+                <div class="section-header reveal-up" style="text-align: left; margin-bottom: 60px;">
+                    <div class="section-eyebrow">Our Blueprint</div>
+                    <h2>Development <span class="gradient-text">Process</span></h2>
+                </div>
+                <div class="process-timeline">
+                    <div class="process-line"></div>
+                    <div class="process-step reveal-up">
+                        <div class="step-number">01</div>
+                        <div class="step-content glass-card-sm">
+                            <div class="step-icon">💡</div>
+                            <h3>Requirement Analysis</h3>
+                            <p>Gather business processes, outline product features, and construct a technical roadmap.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal-up" style="transition-delay: 0.1s;">
+                        <div class="step-number">02</div>
+                        <div class="step-content glass-card-sm">
+                            <div class="step-icon">📐</div>
+                            <h3>Architecture &amp; Design</h3>
+                            <p>Map database structures, system dependencies, API integrations, and UI/UX prototypes.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal-up" style="transition-delay: 0.2s;">
+                        <div class="step-number">03</div>
+                        <div class="step-content glass-card-sm">
+                            <div class="step-icon">⚙️</div>
+                            <h3>Engineering</h3>
+                            <p>Code robust, secure services and implement scalable frontend and backend platforms.</p>
+                        </div>
+                    </div>
+                    <div class="process-step reveal-up" style="transition-delay: 0.3s;">
+                        <div class="step-number">04</div>
+                        <div class="step-content glass-card-sm">
+                            <div class="step-icon">🛡️</div>
+                            <h3>Testing &amp; Deployment</h3>
+                            <p>Perform automated testing, security checks, bug fixing, and launch in active cloud environments.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Grid -->
+            <div class="service-grid-section">
+                <div class="section-header reveal-up" style="text-align: left; margin-bottom: 60px;">
+                    <div class="section-eyebrow">Services We Offer</div>
+                    <h2>Services <span class="gradient-text">For Growing Businesses</span></h2>
+                </div>
+                <div class="card-grid">
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-purple">💻</div>
+                        <h3>Custom Software Development</h3>
+                        <p>Tailored web applications, internal tools, and software solutions built around how your company actually operates, boosting daily efficiency.</p>
+                        <div class="card-tags"><span>Custom Apps</span><span>Productivity</span><span>Scalable</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">🏢</div>
+                        <h3>Enterprise &amp; SaaS Solutions</h3>
+                        <p>Build scalable SaaS products with subscription payments, dashboards, and role permissions, ready for your first paying customer.</p>
+                        <div class="card-tags"><span>SaaS Ready</span><span>Enterprise</span><span>Secure</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-green">☁️</div>
+                        <h3>Cloud-Native Systems</h3>
+                        <p>Optimize host workloads, reduce server fees, and ensure 99.9% uptime by migrating to highly accessible cloud setups (AWS/GCP).</p>
+                        <div class="card-tags"><span>AWS Migration</span><span>Uptime</span><span>Cost-Saving</span></div>
+                    </div>
+                    <div class="glass-card tilt-card featured-card">
+                        <div class="card-glow"></div>
+                        <div class="card-accent"></div>
+                        <div class="card-icon gradient-blue">🔗</div>
+                        <h3>API Development &amp; Sync</h3>
+                        <p>Connect siloed software. We build secure APIs and sync databases so your billing, customer directories, and CRMs share data automatically.</p>
+                        <div class="card-tags"><span>API Integration</span><span>Database Sync</span><span>Automation</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="tech-stack-section">
+                <div class="section-header reveal-up" style="text-align: left; margin-bottom: 40px;">
+                    <div class="section-eyebrow">Technology Stack</div>
+                    <h2>Engineered With <span class="gradient-text">Latest Tech</span></h2>
+                    <p>We leverage industry-leading software technologies to build secure, scaling, and performant solutions.</p>
+                </div>
+                <div class="tech-grid reveal-up">
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #61DAFB;">⚛️</div>
+                        <div class="tech-name">React / Next.js</div>
+                    </div>
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #339933;">🟢</div>
+                        <div class="tech-name">Node / Express.js</div>
+                    </div>
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #3178C6;">TypeScript</div>
+                        <div class="tech-name">TypeScript</div>
+                    </div>
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #336791;">🐘</div>
+                        <div class="tech-name">PostgreSQL / MySQL</div>
+                    </div>
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #47A248;">🍃</div>
+                        <div class="tech-name">MongoDB</div>
+                    </div>
+                    <div class="tech-badge">
+                        <div class="tech-icon" style="color: #FF9900;">☁️</div>
+                        <div class="tech-name">AWS Services</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="glass-card reveal-up" style="padding: 60px; text-align: center; background: radial-gradient(circle at top right, rgba(0,212,255,0.1), transparent);">
+                <div class="card-glow"></div>
+                <h2>Optimize Your Software Infrastructure</h2>
+                <p style="color: var(--text-secondary); max-width: 600px; margin: 16px auto 32px;">Ready to automate boring processes and scale your custom software? Tell us what you need in plain English.</p>
+                <a href="#contact-modal" class="btn-primary btn-glow trigger-modal">Hire Dedicated Software Developers</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-glow"></div>
+        <div class="container footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo"><span class="logo-text">Velixan</span><span class="logo-dot">.</span></div>
+                    <p>Software development for founders and growing businesses. Senior engineers, plain-English communication, and a free 7-day trial so you can see the quality before you commit.</p>
+                    <div class="footer-contact">
+                        <a href="mailto:hello@velixantechnologies.com">hello@velixantechnologies.com</a>
+                    </div>
+                </div>
+                <div class="footer-cols">
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <a href="custom-software.html">Custom Software</a>
+                        <a href="mobile-apps.html">Mobile & Web Dev</a>
+                        <a href="mobile-apps.html">UX/UI Design</a>
+                        <a href="custom-software.html">SaaS Development</a>
+                        <a href="custom-software.html">MVP Development</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Solutions</h4>
+                        <a href="custom-software.html">Legacy Modernization</a>
+                        <a href="custom-software.html">Digital Transformation</a>
+                        <a href="index.html#consulting">Start-up Consulting</a>
+                        <a href="index.html#consulting">Digital Marketing</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Company</h4>
+                        <a href="index.html#about">About Us</a>
+                        <a href="index.html#process">Our Process</a>
+                        <a href="https://velixantechnologies.com">Main Website</a>
+                        <a href="mailto:hello@velixantechnologies.com">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Velixan Technologies. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container glass-card">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <h3 id="modal-title">Start a Project with <span class="gradient-text">Velixan</span></h3>
+                <p class="modal-subtitle">Tell us about your vision. We'll get back to you within 24 hours.</p>
+                
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" id="form-name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Work Email</label>
+                        <input type="email" id="form-email" placeholder="john@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-budget">Project Budget (Optional)</label>
+                        <select id="form-budget">
+                            <option value="" disabled selected>Select a range...</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-20k">$5,000 - $20,000</option>
+                            <option value="20k-50k">$20,000 - $50,000</option>
+                            <option value="50k-plus">$50,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Describe what you want to build</label>
+                        <textarea id="form-message" rows="4" placeholder="I need a custom SaaS app with automated workflows..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-glow btn-submit">Submit Request</button>
+                </form>
+                
+                <!-- Success State -->
+                <div id="form-success" class="form-success-state" style="display: none;">
+                    <div class="success-icon">&#9989;</div>
+                    <h4>Request Received!</h4>
+                    <p>Thank you for reaching out. A senior engineer will review your project description and contact you via email shortly.</p>
+                    <button type="button" class="btn-primary btn-success-close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
